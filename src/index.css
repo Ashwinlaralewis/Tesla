@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tesla-inspired Design System */
+
+@layer base {
+  :root {
+    /* Tesla Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.375rem;
+
+    /* Tesla Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 7%), hsl(0 0% 15%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 100% 50%), hsl(220 100% 60%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 7% / 0.8), hsl(0 0% 7% / 0.4));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 98%), hsl(0 0% 95%));
+    --gradient-premium: linear-gradient(135deg, hsl(45 100% 51%), hsl(35 100% 45%));
+
+    /* Tesla Shadows */
+    --shadow-elegant: 0 20px 40px hsl(0 0% 7% / 0.1);
+    --shadow-glow: 0 0 40px hsl(210 100% 50% / 0.3);
+    --shadow-premium: 0 25px 50px hsl(0 0% 7% / 0.15);
+    --shadow-card: 0 10px 30px hsl(0 0% 7% / 0.08);
+
+    /* Tesla Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: all 0.2s ease-out;
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 210 100% 50%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .tesla-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .tesla-accent-gradient {
+    background: var(--gradient-accent);
+  }
+
+  .tesla-premium-gradient {
+    background: var(--gradient-premium);
+  }
+
+  .tesla-hero-overlay {
+    background: var(--gradient-hero);
+  }
+
+  .tesla-card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .tesla-shadow {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .tesla-shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .tesla-shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .tesla-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .tesla-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .tesla-transition-fast {
+    transition: var(--transition-fast);
+  }
+
+  .tesla-transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(210 100% 50%), hsl(220 100% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
